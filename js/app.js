@@ -2,7 +2,7 @@
  según el algoritmo de Cifrado César con el parámetro de desplazamiento de 33 espacios hacia la derecha */
 // primero busco un filtro apartir de un array que contengan las letras del abecedario en mayusculas y minusculas con la propiedad search para verificar que entre solo letras a las funciones DECIPHER Y CIPHER
 
-var testLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var testLetters = /^[a-zA-Z]*$/;
 /*creo mis variables en las cuales insertaré los elementos que cipher o decipher. Uso las mismas porque el usuario solo aceptara una
 de las opciones que le ofrezca, asi que las variables no se usaran al mismo tiempo. No hay conflicto*/
 
@@ -39,17 +39,27 @@ function headDirector (user) {
 
 function cipher(fraseInput){
 
-    fraseInput = prompt( "Introduzca frase a cifrar");
+    do{
+        fraseInput = prompt('Ingrese el texto a cifrar:');
+        
+      //Función validación de datos
+      //valido si la cadena ingresada es un campo vacio o si contiene numeros.
+            if(fraseInput === "" || fraseInput.search(testLetters)){
+                
+                alert("no puede ingresar ni números ni campos vacios");
+                
+                continue;
+            }
 
         for ( var i= 0; i<fraseInput.length;i++){
 
-            if( fraseInput[i]=== fraseInput[1].toUpperCase){
+            if( fraseInput[i]=== fraseInput[i].toUpperCase){
 
                 ascii.push((fraseInput.charCodeAt(i) -65+ displacement)%26 + 65);
             }
 // se usa el valor 65 y 97 porque en 65 empieza en abecedario en minusculas y en 97 en mayúsculas
 
-            else if (fraseInput[i]=== fraseInput[1].toLowerCase){
+            else if (fraseInput[i]=== fraseInput[i].toLowerCase){
 
                 ascii.push((fraseInput.charCodeAt(i) -97+ displacement)%26 + 97);
             }
@@ -60,26 +70,37 @@ function cipher(fraseInput){
 
             fraseOutput.push((ascii.toString.fromCharCode(ascii[k])));
         }
+        
+        return alert(fraseOutput.join(""));
 
-    return(alert(fraseOutput.join(" ")));
-
-}
+    }while(fraseInput =="" || fraseInput.search(testLetters)); 
+  }
 
 function decipher(fraseInput){
-    
-        fraseInput = prompt( "Introduzca frase a decifrar");
+
+    do{
+        fraseInput = prompt('Ingrese el texto a descifrar:');
+        
+      //Función validación de datos
+      //valido si la cadena ingresada es un campo vacio o si contiene numeros.
+            if(fraseInput === "" || fraseInput.search(testLetters)){
+                
+                alert("no puede ingresar ni números ni campos vacios");
+                
+                continue;
+            }
     
             for ( var i= 0; i<fraseInput.length;i++){
     
-                if( fraseInput[i]=== fraseInput[1].toUpperCase){
+                if( fraseInput[i]=== fraseInput[i].toUpperCase){
     
-                    ascii.push((fraseInput.charCodeAt(i) -90 + displacement)%26 + 90);
+                    ascii.push((fraseInput.charCodeAt(i) -90 - displacement)%26 + 90);
                 }
     // se usa el valor 90 y 122 porque en 90 termina el abecedario en minusculas y no queremos que displacemet retroceda fuera del abecedario al index
     
-                else if (fraseInput[i]=== fraseInput[1].toLowerCase){
+                else if (fraseInput[i]=== fraseInput[i].toLowerCase){
     
-                    ascii.push((fraseInput.charCodeAt(i) -122+ displacement)%26 + 122);j
+                    ascii.push((fraseInput.charCodeAt(i) -122- displacement)%26 + 122);j
                 }
     
             }
@@ -88,13 +109,14 @@ function decipher(fraseInput){
     
                 fraseOutput.push((ascii.toString.fromCharCode(ascii[j])));
             }
+            
+            return alert(fraseOutput.join(""));
     
-        return(alert(fraseOutput.join(" ")));
-    
-    }
+        } while(fraseInput =="" || fraseInput.search(testLetters));s
+}
 
 
-headDirector();
+headDirector(user);
 
 
 
