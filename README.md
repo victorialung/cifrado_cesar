@@ -14,21 +14,25 @@ Este README contiene :
 
 Pseudocódigo
 -------------
-1.INICIO
-2. Se crea una funcion principal llamada headDirector que  mostrará las opciones de cifrar o descifrar y evaluará que ingrese uno de las opciones establecidas.
-3.De ingresarse la opción 1, se ejecuta la funcion Cipher
-4. De ingresarse la opción 2, se ejecuta la funcion Decipher
-5. De no ingresarse ningún valor vació o distinto a 1 o 2, se volverá a mandar un aviso al usuario hasta que ingreso una opcion válida.
-6. FIN
 
+1. INICIO
+2. Se crea una funcion principal llamada headDirector que  mostrará las opciones de cifrar o descifrar y evaluará que     ingrese uno de las opciones establecidas.
+3. De ingresarse la opción 1, se deriva a la funcion Cipher
+4. Se pedirá la frase a cifrar y se evaluará que sea un texto
+5. De ser un  texto se pasa a cifrar
+7. Se devuelve mediante un alert() la frase cifrada
+6. De no validarse el texto, se le vuelve a pedir que ingrese una frase que no sea un campo vacio o número.
+7. De ingresarse la opción 2, se deriva a la funcion Decipher
+8. Se pedirá la frase a descifrar y se evaluará que sea un texto
+9. De ser un texto se pasa a descifrar
+10. De devuelve mediante un alert() la frase descifrada
+10. De no validarse el texto, se le vuelve a pedir que ingrese una frase que no sea un campo vacio o número.
+14. FIN
 
 ---------
 Diagrama de flujo
 -------------
 
-
-!(assets/docs/flow.jpeg)
-
-
+![recursos](assets/docs/flow.jpg)
 
 
